@@ -3,8 +3,8 @@
         <div class="slider-group" ref="sliderGroup">
             <slot></slot>
         </div>
-        <div class="dots">
-            <!-- <span class="dot" :class="{active: currentPageIndex === index }" v-for="(item, index) in dots"></span> -->
+        <div v-if="showDot" class="dots">
+            <span class="dot" :class="{active: currentPageIndex === index }" v-for="(item, index) in dots"></span>
         </div>
     </div>
 </template>
@@ -15,6 +15,12 @@ import BScroll from 'better-scroll'
 import { addClass } from 'common/js/dom'
 
 export default {
+    data() {
+        return {
+            dots: [],
+            currentPageIndex: 0
+        }
+    },
     props: {
         loop: {
             type: Boolean,
@@ -26,46 +32,172 @@ export default {
         },
         interval: {
             type: Number,
-            default: 4000
-        }
+            default: 2000
+        },
+        showDot: {
+            type: Boolean,
+            default: true
+        },
     },
     mounted() {
-        setTimeout(() => { //初始化轮播
-            this.setSliderWidth()
-            this.initSlider()
-        }, 20);
+        // setTimeout(() => { //初始化轮播
+        //     this.setSliderWidth()
+        //     this._initDots()
+        //     this.initSlider()
+        // }, 20);
+        // this.$nextTick(() => {  //异步更新队列，完成dom更新
+        //     this._setSliderWidth()
+        //     this._initDots()
+        //     this._initSlider()
+        // })
+        this.update()
+        window.addEventListener('resize', () => {
+            if (!this.slider || !this.slider.enabled) {
+                return
+            }
+            clearTimeout(this.resizeTimer)
+            this.resizeTimer = setTimeout(() => {
+                if (this.slider.isInTransition) {
+                    this._onScrollEnd()
+                } else {
+                    if (this.autoPlay) {
+                        this._play()
+                    }
+                }
+                this.refresh()
+            }, 60)
+        })
     },
+    // activated() {
+    //     if (!this.slider) {
+    //         return
+    //     }
+    //     this.slider.enable()
+    //     let pageIndex = this.slider.getCurrentPage().pageX
+    //     this.slider.goToPage(pageIndex, 0, 0)
+    //     this.currentPageIndex = pageIndex
+    //     if (this.autoPlay) {
+    //         this._play()
+    //     }
+    // },
+    // deactivated() {
+    //     this.slider.disable()
+    //     clearTimeout(this.timer)
+    // },
+    // beforeDestroy() {
+    //     this.slider.disable()
+    //     clearTimeout(this.timer)
+    // },
     methods: {
-        setSliderWidth(){
-            this.children = this.$refs.sliderGroup.children 
+        update() {
+            if (this.slider) {
+                this.slider.destroy()
+            }
+            this.$nextTick(() => {
+                this.init()
+            })
+        },
+        init() {
+            clearTimeout(this.timer)
+            this.currentPageIndex = 0
+            this._setSliderWidth()
+            if (this.showDot) {
+                this._initDots()
+            }
+            this._initSlider()
+            if (this.autoPlay) {
+                this._play()
+            }
+        },
+        // prev() {
+        //     this.slider.prev()
+        // },
+        // next() {
+        //     this.slider.next()
+        // },
+        refresh() {
+            this._setSliderWidth(true)
+            this.slide.refresh()
+        },
+        _setSliderWidth(isResize) {
+            this.children = this.$refs.sliderGroup.children
 
             let width = 0   //group的宽度
             let sliderWidth = this.$refs.slider.clientWidth   //图片宽度
-            
+
             for (let i = 0; i < this.children.length; i++) {
                 let child = this.children[i];
-                addClass(child,'slider-item')
+                addClass(child, 'slider-item')
                 child.style.width = sliderWidth + 'px'
                 width += sliderWidth
             }
-            if(this.loop) {
-                width += 2*sliderWidth
+            if (this.loop && !isResize) {
+                width += 2 * sliderWidth
             }
             this.$refs.sliderGroup.style.width = width + 'px'
         },
-        initSlider(){
-            this.slider = new BScroll(this.$refs.slider,{
-                scrollX:true,
-                scrollY:false,
-                momentum:false,
-                snap:true,
-                snapLoop:this.loop,
-                snapTreshold:0.3,
-                snapSpeed:400,
-                click:true
+        _initSlider() {
+            this.slider = new BScroll(this.$refs.slider, {
+                scrollX: true,
+                scrollY: false,
+                momentum: false,  //惯性
+                click: true,
+                snap: {
+                    loop: this.loop,
+                    threshold: 0.1,
+                    stepX: 0,
+                    stepY: 0,
+                    // easing: {
+                    //     style: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+                    //     fn: function (t) {
+                    //         return t * (2 - t)
+                    //     }
+                    // }
+                }
             })
+            this.slider.on('scrollEnd', this._onScrollEnd)
+            this.slider.on('touchEnd', () => {
+                if (this.autoPlay) {
+                    this._play()
+                }
+            })
+            this.slider.on('beforeScrollStart', () => {
+                if (this.autoPlay) {
+                    clearTimeout(this.timer)
+                }
+            })
+        },
+        _onScrollEnd() {
+            let pageIndex = this.slider.getCurrentPage().pageX
+            this.currentPageIndex = pageIndex
+            if (this.autoPlay) {
+                this._play()
+            }
+        },
+        _initDots() {
+            this.dots = new Array(this.children.length)
+        },
+        _play() {
+            clearTimeout(this.timer)
+            this.timer = setTimeout(() => {
+                this.slider.next()
+            }, this.interval)
         }
-    }
+    },
+    // watch: {
+    //     loop() {
+    //         this.update()
+    //     },
+    //     autoPlay() {
+    //         this.update()
+    //     },
+    //     speed() {
+    //         this.update()
+    //     },
+    //     threshold() {
+    //         this.update()
+    //     }
+    // }
 }
 </script>
 
