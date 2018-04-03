@@ -84,10 +84,10 @@ export default {
     //     this.slider.disable()
     //     clearTimeout(this.timer)
     // },
-    // beforeDestroy() {
-    //     this.slider.disable()
-    //     clearTimeout(this.timer)
-    // },
+    beforeDestroy() {
+        this.slider.disable()
+        clearTimeout(this.timer)
+    },
     methods: {
         update() {
             if (this.slider) {
