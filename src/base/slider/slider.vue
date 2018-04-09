@@ -117,7 +117,7 @@ export default {
         // },
         refresh() {
             this._setSliderWidth(true)
-            this.slide.refresh()
+            // this.slide.refresh()
         },
         _setSliderWidth(isResize) {
             this.children = this.$refs.sliderGroup.children
