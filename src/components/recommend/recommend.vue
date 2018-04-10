@@ -27,6 +27,9 @@
                     </ul>
                 </div>
             </div>
+            <div class="loading-container" v-show="!discList.length">
+                <loading></loading>
+            </div>
         </Scroll>
     </div>
 </template>
@@ -34,6 +37,7 @@
 <script type="text/ecmascript-6">
 import Scroll from "base/scroll/scroll"
 import Slider from "base/slider/slider"
+import Loading from "base/loading/loading"
 import { getRecommend, getDiscList } from "api/recommend"
 import { ERR_OK } from "api/config"
 import axios from 'axios'
@@ -47,7 +51,9 @@ export default {
     },
     created() {
         this._getRecommend();
-        this._getDiscList();
+        setTimeout(() => {
+            this._getDiscList();
+        }, 200);
     },
     methods: {
         _getRecommend() {
@@ -73,7 +79,8 @@ export default {
     },
     components: {
         Slider,
-        Scroll
+        Scroll,
+        Loading
     }
 }
 </script>
