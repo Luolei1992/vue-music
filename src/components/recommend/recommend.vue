@@ -6,7 +6,8 @@
                     <slider>
                         <div v-for="item in recommends">
                             <a :href="item.linkUrl">
-                                <img @load="imgLoad" :src="item.picUrl" alt="">
+                                <img class="needclick" @load="imgLoad" :src="item.picUrl" alt=""> 
+                                    <!-- 加上needclick解决fastclick阻止点击事件 -->
                             </a>
                         </div>
                     </slider>
@@ -16,7 +17,7 @@
                     <ul>
                         <li v-for="item in discList" class="item">
                             <div class="icon">
-                                <img width="60" height="60" :src="item.cover">
+                                <img width="60" height="60" v-lazy="item.cover">
                             </div>
                             <div class="text">
                                 <h2 class="name" v-html="item.username"></h2>
