@@ -40,16 +40,6 @@ export default {
         },
     },
     mounted() {
-        // setTimeout(() => { //初始化轮播
-        //     this.setSliderWidth()
-        //     this._initDots()
-        //     this.initSlider()
-        // }, 20);
-        // this.$nextTick(() => {  //异步更新队列，完成dom更新
-        //     this._setSliderWidth()
-        //     this._initDots()
-        //     this._initSlider()
-        // })
         this.update()
         window.addEventListener('resize', () => {
             if (!this.slider || !this.slider.enabled) {
@@ -68,22 +58,6 @@ export default {
             }, 60)
         })
     },
-    // activated() {
-    //     if (!this.slider) {
-    //         return
-    //     }
-    //     this.slider.enable()
-    //     let pageIndex = this.slider.getCurrentPage().pageX
-    //     this.slider.goToPage(pageIndex, 0, 0)
-    //     this.currentPageIndex = pageIndex
-    //     if (this.autoPlay) {
-    //         this._play()
-    //     }
-    // },
-    // deactivated() {
-    //     this.slider.disable()
-    //     clearTimeout(this.timer)
-    // },
     beforeDestroy() {
         this.slider.disable()
         clearTimeout(this.timer)
@@ -109,12 +83,6 @@ export default {
                 this._play()
             }
         },
-        // prev() {
-        //     this.slider.prev()
-        // },
-        // next() {
-        //     this.slider.next()
-        // },
         refresh() {
             this._setSliderWidth(true)
             // this.slide.refresh()
@@ -183,21 +151,7 @@ export default {
                 this.slider.next()
             }, this.interval)
         }
-    },
-    // watch: {
-    //     loop() {
-    //         this.update()
-    //     },
-    //     autoPlay() {
-    //         this.update()
-    //     },
-    //     speed() {
-    //         this.update()
-    //     },
-    //     threshold() {
-    //         this.update()
-    //     }
-    // }
+    }
 }
 </script>
 

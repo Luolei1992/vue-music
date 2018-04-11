@@ -5,7 +5,7 @@ export function getSingerList(){
     const data = Object.assign({},commonParams,{
         channel: "singer",
         page: "list",
-        key: "all_all_M",
+        key: "all_all_all",
         pagesize: 100,
         pagenum: 1,
         loginUin: 0,
