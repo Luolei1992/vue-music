@@ -18,6 +18,9 @@
                 </li>
             </ul>
         </div>
+        <div class="list-fixed" v-show="fixedTitle" ref="fixed">
+            <h1 class="fixed-title">{{fixedTitle}}</h1>
+        </div>
         <div v-show="!data.length" class="loading-container">
             <loading></loading>
         </div>
@@ -30,6 +33,7 @@ import Loading from 'base/loading/loading'
 import { genData } from 'common/js/dom.js'
 
 const staticHeight = 18
+const titleHeight = 30
 export default {
     created() {
         this.touch = {}
@@ -46,7 +50,8 @@ export default {
     data() {
         return {
             scrollY: -1,
-            currentIndex: 0
+            currentIndex: 0,
+            diff: -1
         }
     },
     computed: {
@@ -60,7 +65,8 @@ export default {
                 return ''
             }
             return this.data[this.currentIndex] ? this.data[this.currentIndex].title : ''
-        }
+        },
+
     },
     methods: {
         onShortcutTouchStart(e) {
@@ -120,11 +126,21 @@ export default {
                 let endHeight = listHeight[i + 1]
                 if (-newY >= startHeight && -newY < endHeight) {
                     this.currentIndex = i
+                    this.diff = endHeight + newY
                     return
                 }
             }
             this.currentIndex = listHeight.length - 2
+        },
+        diff(newVal) {
+            let fixedTop = (newVal > 0 && newVal < titleHeight) ? newVal - titleHeight : 0
+            if (this.fixedTop === fixedTop) {
+                return
+            }
+            this.fixedTop = fixedTop
+            this.$refs.fixed.style.transform = `translate3d(0,${fixedTop}px,0)`
         }
+
     },
 
     components: {
