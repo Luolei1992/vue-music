@@ -12,7 +12,8 @@
             </li>
         </ul>
         <div class="list-shortcut" 
-            @touchstart.stop.prevent="onShortcutTouchStart" >
+            @touchstart.stop.prevent="onShortcutTouchStart"
+            @touchmove.stop.prevent="onShortcutTouchMove" >
             <ul>
                 <li v-for="(item, index) in shortcutList" :data-index="index" class="item">
                     {{item}}
@@ -29,8 +30,12 @@
 import Scroll from 'base/scroll/scroll'
 import Loading from 'base/loading/loading'
 import {genData} from 'common/js/dom.js'
+
+const staticHeight = 18
 export default {
-    name: "Listview",
+    created(){
+        this.touch={}
+    },
     props: {
         data: {
             type: Array,
@@ -53,9 +58,23 @@ export default {
     methods: {
         onShortcutTouchStart(e) {
             let anchorIndex = genData(e.target, "index")
-            this.$refs.listview.scrollToElement(this.$refs.listGroup[anchorIndex], 0)
+            let fstTouch = e.touches[0]
+            this.touch.y1 = fstTouch.pageY
+            this.touch.anchorIndex = anchorIndex
+            this._scrollTo(anchorIndex)
         },
-        
+        onShortcutTouchMove(e) {
+            let fstTouch = e.touches[0]
+            this.touch.y2 = fstTouch.pageY
+            let delta = (this.touch.y2 - this.touch.y1)/staticHeight | 0
+            let anchorIndex =  this.touch.anchorIndex + delta 
+            console.log(anchorIndex);
+            
+            this._scrollTo(anchorIndex)
+        },
+        _scrollTo(index){
+            this.$refs.listview.scrollToElement(this.$refs.listGroup[index], 0)
+        }
     },
     components: {
         Scroll,
