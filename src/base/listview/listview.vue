@@ -4,7 +4,7 @@
             <li v-for="group in data" class="list-group" ref="listGroup">
                 <h2 class="list-group-title">{{group.title}}</h2>
                 <uL>
-                    <li v-for="item in group.items" class="list-group-item">
+                    <li v-for="item in group.items" class="list-group-item" @click="selectItem(item)">
                         <img class="avatar" v-lazy="item.avatar">
                         <span class="name">{{item.name}}</span>
                     </li>
@@ -108,6 +108,9 @@ export default {
                 height += item.clientHeight
                 this.listHeight.push(height)
             })
+        },
+        selectItem(item){
+            this.$emit('select',item)
         }
     },
     watch: {
@@ -120,6 +123,7 @@ export default {
             const listHeight = this.listHeight
             if (newY > 0) {  //滚动到顶部
                 this.currentIndex = 0
+                return;
             }
             for (let i = 0; i < listHeight.length; i++) {   //中间部分
                 let startHeight = listHeight[i]
@@ -134,7 +138,7 @@ export default {
         },
         diff(newVal) {
             let fixedTop = (newVal > 0 && newVal < titleHeight) ? newVal - titleHeight : 0
-            if (this.fixedTop === fixedTop) {
+            if (this.fixedTop == fixedTop) {
                 return
             }
             this.fixedTop = fixedTop
