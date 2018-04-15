@@ -45,6 +45,9 @@ export default {
         data: {
             type: Array,
             default: []
+        },
+        arr: {
+            
         }
     },
     data() {

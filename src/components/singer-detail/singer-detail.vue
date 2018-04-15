@@ -5,10 +5,50 @@
 </template>
 
 <script type="text/ecmascript-6">
+import {mapGetters} from 'vuex'
+import {getSingerDetail} from 'api/singer'
 import { ERR_OK } from 'api/config'
-
+import {createSong} from 'common/js/song'
 export default {
+    data(){
+        return {
+            songs:[]
+        }
+    },
+    computed:{
+        ...mapGetters([
+            'singer'
+        ])
+    },
+    created(){
+        this._getDetail(this.singer.id)
+    },
+    methods:{
+        _getDetail(id){
+            if(!id){
+                this.$router.push({path:'/singer'})
+                return
+            }
+            getSingerDetail(id).then((res)=>{
+                if(res.code === ERR_OK){
+                    this.songs = this._normallizeSongs(res.data.list)
+                    console.log(this.songs);
+                }
+            }).catch((res)=>{
 
+            })
+        },
+        _normallizeSongs(list){
+            let lis = []
+            list.forEach((item) => {
+                let {musicData} = item;  //解构赋值相当于是let musicData = item.musicData
+                if(musicData.songid && musicData.albummid) {
+                    lis.push(createSong(musicData))
+                }
+            });
+            return lis;
+        }
+    }
 }
 </script>
 

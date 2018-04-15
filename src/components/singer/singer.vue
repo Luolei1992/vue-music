@@ -1,6 +1,6 @@
 <template>
     <div class="singer" >
-        <listview :data="singers" @select="selectSinger"></listview>
+        <listview :data="singers" @select="selectSinger" :arr="num"></listview>
         <router-view></router-view>
     </div>
 </template>
@@ -9,17 +9,17 @@
 
 import {getSingerList} from 'api/singer.js'
 import {ERR_OK} from 'api/config.js'
-
 import Listview from '../../base/listview/listview'
 import Singer from 'common/js/singer.js'
-
+import {mapMutations} from 'vuex'
 
 let HOT_NAME = "热门"
 let HOT_SINGER_LENGTH = 10
 export default {
     data(){
         return {
-            singers:[]
+            singers:[],
+            num:[1,2,3]
         }
     },
     created(){
@@ -30,6 +30,7 @@ export default {
             this.$router.push({
                 path:`/singer/${singer.id}`
             })
+            this.setSinger(singer)
         },
         _getSingerList(){
             getSingerList().then((res)=>{
@@ -78,7 +79,10 @@ export default {
                 return a.title.charCodeAt(0) - b.title.charCodeAt(0)
             })
             return hot.concat(ret);
-        }
+        },
+        ...mapMutations({
+            setSinger:'SET_SINGER'
+        })
     },
     components:{
         Listview
