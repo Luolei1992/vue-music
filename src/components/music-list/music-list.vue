@@ -18,9 +18,12 @@
         </div>
         <scroll :data="songs" class="list wrapper" ref="list" :listenScroll="listenScroll" @scroll="scroll" :probeType="probeType">
             <div class="song-list-wrapper">
-                <song-list :songs="songs">
+                <song-list :songs="songs" @select="selectItem">
 
                 </song-list>
+            </div>
+            <div v-show="!songs.length" class="loading-container">
+                <loading></loading>
             </div>
         </scroll>
     </div>
@@ -30,7 +33,9 @@
 <script type="text/ecmascript-6">
 import Scroll from 'base/scroll/scroll'
 import SongList from 'base/song-list/song-list'
+import Loading from 'base/loading/loading'
 import { prefixStyle } from 'common/js/dom'
+import {mapActions} from 'vuex'
 const topHeight = 40;
 const transform = prefixStyle('transform')
 const backdrop = prefixStyle('backdrop-filter')
@@ -66,7 +71,6 @@ export default {
     mounted() {
         this.imageHeight = this.$refs.bgImage.clientHeight
         this.minTranslateY = -this.imageHeight + topHeight
-        console.log(this.$refs.list);
         this.$refs.list.$el.style.top = `${this.$refs.bgImage.clientHeight}px`
     },
     methods: {
@@ -81,6 +85,15 @@ export default {
                 list: this.songs
             })
         },
+        selectItem(item ,index){
+            this.selectPlay({
+                list:this.songs,
+                index
+            })
+        },
+        ...mapActions([
+            'selectPlay'
+        ])
     },
     watch: {
         scrollY(newY) {
@@ -112,7 +125,8 @@ export default {
     },
     components: {
         SongList,
-        Scroll
+        Scroll,
+        Loading
     }
 }
 </script>
