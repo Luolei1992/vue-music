@@ -92,7 +92,8 @@ export default {
             })
         },
         ...mapActions([
-            'selectPlay'
+            'selectPlay',
+            'randomPlay'
         ])
     },
     watch: {
