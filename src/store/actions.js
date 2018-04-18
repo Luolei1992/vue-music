@@ -1,10 +1,17 @@
 import * as types from './mutation-types'
 import { playMode } from 'common/js/config'
 import { shuffle } from 'common/js/util'
+function findIndex(list, song) {
+    return list.findIndex((item) => {
+      return item.id === song.id
+    })
+  }
+  
 export const selectPlay = function ({ commit, state }, { list, index }) {
     commit(types.SET_SEQUENCE_LIST, list)
     if (state.mode === playMode.random) {
         let randomList = shuffle(list)
+        console.log(list[index])
         commit(types.SET_PLAY_LIST, randomList)
         index = findIndex(randomList, list[index])
     } else {

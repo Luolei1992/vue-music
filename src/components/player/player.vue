@@ -80,6 +80,8 @@ import ProgressBar from 'base/progress-bar/progress-bar'
 import ProgressCircle from 'base/progress-circle/progress-circle'
 import {playMode} from 'common/js/config'
 import {shuffle} from 'common/js/util'
+import {getSingerPlayUrl} from 'api/singer'
+import {ERR_OK} from 'api/config'
 
 const transform = prefixStyle('transform')
 const transitionDuration = prefixStyle('transitionDuration')
@@ -92,6 +94,7 @@ export default {
             currentShow: 'cd',
             currentLyric: null,
             radius: 32,
+            currectUrl:''
         }
     },
     computed: {
@@ -316,8 +319,16 @@ export default {
             if (newSong.id === oldSong.id) {
                 return
             }
+            // getSingerPlayUrl(newSong.mid).then((res)=>{
+            //     console.log(res);
+            //     if(res.code === ERR_OK){
+            //         this.currectUrl = 'http://dl.stream.qqmusic.qq.com/C400'+newSong.mid+'.m4a?vkey='+res.data.items[0].vkey+'&guid=7101213003&uin=0&fromtag=66'
+            //     }
+            // }).catch((res)=>{
+                
+            //     })
             // if (this.currentLyric) {
-            //     this.currentLyric.stop()
+                //     this.currentLyric.stop()
             //     this.currentTime = 0
             //     this.playingLyric = ''
             //     this.currentLineNum = 0

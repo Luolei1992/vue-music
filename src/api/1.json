@@ -1,0 +1,353 @@
+{
+	"code": 0,
+	"data": {
+		"list": [{
+			"Flisten_count1": "210000000",
+			"Fupload_time": "2018-01-17 20:34:27",
+			"index": 1,
+			"isnew": 0,
+			"listenCount": 0,
+			"musicData": {
+				"albumdesc": "",
+				"albumid": 3883404,
+				"albummid": "003bSL0v4bpKAx",
+				"albumname": "等你下课",
+				"alertid": 100002,
+				"belongCD": 1,
+				"cdIdx": 0,
+				"interval": 270,
+				"isonly": 1,
+				"label": "0",
+				"msgid": 14,
+				"pay": {
+					"payalbum": 0,
+					"payalbumprice": 0,
+					"paydownload": 1,
+					"payinfo": 1,
+					"payplay": 0,
+					"paytrackmouth": 1,
+					"paytrackprice": 200,
+					"timefree": 0
+				},
+				"preview": {
+					"trybegin": 66749,
+					"tryend": 121677,
+					"trysize": 879803
+				},
+				"rate": 31,
+				"singer": [{
+					"id": 4558,
+					"mid": "0025NhlN2yWrP4",
+					"name": "周杰伦"
+				}],
+				"size128": 4321060,
+				"size320": 10802353,
+				"size5_1": 0,
+				"sizeape": 31780875,
+				"sizeflac": 31922907,
+				"sizeogg": 6045129,
+				"songid": 212877900,
+				"songmid": "001J5QJL1pRQYB",
+				"songname": "等你下课(with 杨瑞代)",
+				"songorig": "等你下课(with 杨瑞代)",
+				"songtype": 0,
+				"strMediaMid": "001J5QJL1pRQYB",
+				"stream": 13,
+				"switch": 17413891,
+				"type": 0,
+				"vid": "d002559kt56"
+			},
+			"playurl": "",
+			"price": 320,
+			"vid": {
+				"Fmv_id": "1447833",
+				"Fstatus": "1",
+				"Fvid": "d002559kt56"
+			}
+		}, {
+			"Flisten_count1": "186077912",
+			"Fupload_time": "2016-06-06 16:21:17",
+			"index": 2,
+			"isnew": 0,
+			"listenCount": 0,
+			"musicData": {
+				"albumdesc": "",
+				"albumid": 1458791,
+				"albummid": "003RMaRI1iFoYd",
+				"albumname": "周杰伦的床边故事",
+				"alertid": 100002,
+				"belongCD": 8,
+				"cdIdx": 0,
+				"interval": 215,
+				"isonly": 1,
+				"label": "4611686018435776513",
+				"msgid": 14,
+				"pay": {
+					"payalbum": 1,
+					"payalbumprice": 2000,
+					"paydownload": 1,
+					"payinfo": 1,
+					"payplay": 0,
+					"paytrackmouth": 1,
+					"paytrackprice": 200,
+					"timefree": 0
+				},
+				"preview": {
+					"trybegin": 65138,
+					"tryend": 85421,
+					"trysize": 325589
+				},
+				"rate": 31,
+				"singer": [{
+					"id": 4558,
+					"mid": "0025NhlN2yWrP4",
+					"name": "周杰伦"
+				}],
+				"size128": 3443771,
+				"size320": 8608939,
+				"size5_1": 0,
+				"sizeape": 24929083,
+				"sizeflac": 24971563,
+				"sizeogg": 5001304,
+				"songid": 107192078,
+				"songmid": "003OUlho2HcRHC",
+				"songname": "告白气球",
+				"songorig": "告白气球",
+				"songtype": 0,
+				"strMediaMid": "003OUlho2HcRHC",
+				"stream": 13,
+				"switch": 17413891,
+				"type": 0,
+				"vid": "u00222le4ox"
+			},
+			"playurl": "",
+			"price": 320,
+			"vid": {
+				"Fmv_id": "1053277",
+				"Fstatus": "1",
+				"Fvid": "u00222le4ox"
+			}
+		}, {
+			"Flisten_count1": "144196510",
+			"Fupload_time": "2008-11-04 15:36:06",
+			"index": 3,
+			"isnew": 0,
+			"listenCount": 0,
+			"musicData": {
+				"albumdesc": "",
+				"albumid": 36062,
+				"albummid": "002Neh8l0uciQZ",
+				"albumname": "魔杰座",
+				"alertid": 2,
+				"belongCD": 11,
+				"cdIdx": 0,
+				"interval": 223,
+				"isonly": 1,
+				"label": "5764624977789714433",
+				"msgid": 14,
+				"pay": {
+					"payalbum": 0,
+					"payalbumprice": 0,
+					"paydownload": 1,
+					"payinfo": 1,
+					"payplay": 0,
+					"paytrackmouth": 1,
+					"paytrackprice": 200,
+					"timefree": 0
+				},
+				"preview": {
+					"trybegin": 54048,
+					"tryend": 76877,
+					"trysize": 366131
+				},
+				"rate": 31,
+				"singer": [{
+					"id": 4558,
+					"mid": "0025NhlN2yWrP4",
+					"name": "周杰伦"
+				}],
+				"size128": 3581117,
+				"size320": 8929849,
+				"size5_1": 0,
+				"sizeape": 25245000,
+				"sizeflac": 26093502,
+				"sizeogg": 5156630,
+				"songid": 449205,
+				"songmid": "003aAYrm3GE0Ac",
+				"songname": "稻香",
+				"songorig": "稻香",
+				"songtype": 0,
+				"strMediaMid": "003aAYrm3GE0Ac",
+				"stream": 13,
+				"switch": 17413891,
+				"type": 0,
+				"vid": "l0013kgn1be"
+			},
+			"playurl": "",
+			"price": 320,
+			"vid": {
+				"Fmv_id": "57370",
+				"Fstatus": "1",
+				"Fvid": "l0013kgn1be"
+			}
+		}, {
+			"Flisten_count1": "133176025",
+			"Fupload_time": "2005-10-24 11:11:35",
+			"index": 4,
+			"isnew": 0,
+			"listenCount": 0,
+			"musicData": {
+				"albumdesc": "",
+				"albumid": 8220,
+				"albummid": "000MkMni19ClKG",
+				"albumname": "叶惠美",
+				"alertid": 2,
+				"belongCD": 3,
+				"cdIdx": 0,
+				"interval": 269,
+				"isonly": 1,
+				"label": "4611686018435776513",
+				"msgid": 14,
+				"pay": {
+					"payalbum": 0,
+					"payalbumprice": 0,
+					"paydownload": 1,
+					"payinfo": 1,
+					"payplay": 0,
+					"paytrackmouth": 1,
+					"paytrackprice": 200,
+					"timefree": 0
+				},
+				"preview": {
+					"trybegin": 84746,
+					"tryend": 141466,
+					"trysize": 908642
+				},
+				"rate": 31,
+				"singer": [{
+					"id": 4558,
+					"mid": "0025NhlN2yWrP4",
+					"name": "周杰伦"
+				}],
+				"size128": 4319991,
+				"size320": 10793267,
+				"size5_1": 0,
+				"sizeape": 30143423,
+				"sizeflac": 31518872,
+				"sizeogg": 5871273,
+				"songid": 97773,
+				"songmid": "0039MnYb0qxYhV",
+				"songname": "晴天",
+				"songorig": "晴天",
+				"songtype": 0,
+				"strMediaMid": "0039MnYb0qxYhV",
+				"stream": 13,
+				"switch": 17413891,
+				"type": 0,
+				"vid": "w0026q7f01a"
+			},
+			"playurl": "",
+			"price": 320,
+			"vid": {
+				"Fmv_id": "293791",
+				"Fstatus": "1",
+				"Fvid": "w0026q7f01a"
+			}
+		}, {
+			"Flisten_count1": "128129113",
+			"Fupload_time": "2007-10-31 16:45:32",
+			"index": 5,
+			"isnew": 0,
+			"listenCount": 0,
+			"musicData": {
+				"albumdesc": "",
+				"albumid": 33021,
+				"albummid": "002eFUFm2XYZ7z",
+				"albumname": "我很忙",
+				"alertid": 2,
+				"belongCD": 3,
+				"cdIdx": 0,
+				"interval": 239,
+				"isonly": 1,
+				"label": "4611686018431582209",
+				"msgid": 14,
+				"pay": {
+					"payalbum": 0,
+					"payalbumprice": 0,
+					"paydownload": 1,
+					"payinfo": 1,
+					"payplay": 0,
+					"paytrackmouth": 1,
+					"paytrackprice": 200,
+					"timefree": 0
+				},
+				"preview": {
+					"trybegin": 57191,
+					"tryend": 90651,
+					"trysize": 536240
+				},
+				"rate": 31,
+				"singer": [{
+					"id": 4558,
+					"mid": "0025NhlN2yWrP4",
+					"name": "周杰伦"
+				}],
+				"size128": 3836490,
+				"size320": 9573872,
+				"size5_1": 0,
+				"sizeape": 25541938,
+				"sizeflac": 26237796,
+				"sizeogg": 5414428,
+				"songid": 410316,
+				"songmid": "002qU5aY3Qu24y",
+				"songname": "青花瓷",
+				"songorig": "青花瓷",
+				"songtype": 0,
+				"strMediaMid": "002qU5aY3Qu24y",
+				"stream": 13,
+				"switch": 17413891,
+				"type": 0,
+				"vid": "l00131om505"
+			},
+			"playurl": "",
+			"price": 320,
+			"vid": {
+				"Fmv_id": "55327",
+				"Fstatus": "1",
+				"Fvid": "l00131om505"
+			}
+		}],
+		"singer_id": "4558",
+		"singer_mid": "0025NhlN2yWrP4",
+		"singer_name": "周杰伦",
+		"total": 397
+	},
+	"message": "succ",
+	"subcode": 0
+}
+{
+	"code": 0,
+	"cid": 205361747,
+	"userip": "112.10.107.163",
+	"data": {
+		"expiration": 80400,
+		"items": [{
+			"subcode": 0,
+			"songmid": "002qU5aY3Qu24y",
+			"filename": "C400002qU5aY3Qu24y.m4a",
+			"vkey": "D61DBACE1A480B67F83B508DBCA6CF068249C732B3896B16B2E4EC75FD60936FD0A136A1D0EEB83DD0CBD0BC5925748CF4C0D71956F1220F"
+		}]
+	}
+}
+{
+//  http://dl.stream.qqmusic.qq.com/
+// uin=0&fromtag=66
+// C400001Qu4I30eVFYb.m4a?vkey=
+// 49C9BEAA5745EE75E691114E797543736BC756D65A705B3F4EC2B5ABD2B499B16B72836F04E3D806C08D8D647396D01083B78DCD945431F3&
+// guid=7101213003
+}
+// http://dl.stream.qqmusic.qq.com/
+// C400002qU5aY3Qu24y.m4a
+// ?vkey=D4DD3F678E3A2C74967190FB508342636171398395375A091856D00D8B5A0CE6D9DC75BCD84179FF1DD15C4525B81840C64E157E6C8B2FF1
+// &guid=7101213003
+// &uin=0&fromtag=66
