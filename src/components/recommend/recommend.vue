@@ -39,10 +39,12 @@ import Scroll from "base/scroll/scroll"
 import Slider from "base/slider/slider"
 import Loading from "base/loading/loading"
 import { getRecommend, getDiscList } from "api/recommend"
+import {playlistMixin} from 'common/js/mixin'
 import { ERR_OK } from "api/config"
 import axios from 'axios'
 
 export default {
+    mixins:[playlistMixin],
     data() {
         return {
             recommends: [],
@@ -56,6 +58,13 @@ export default {
         }, 200);
     },
     methods: {
+        handlePlaylist(playlist){
+            console.log(this.$refs.scroll);
+            
+            const bottom = playlist.length > 0? '60px':""
+            this.$refs.recommend.style.bottom = bottom
+            this.$refs.scroll.refresh()
+        },
         _getRecommend() {
             getRecommend().then((res) => {
                 if (res.code === ERR_OK) {

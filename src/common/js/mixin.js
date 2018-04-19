@@ -20,7 +20,7 @@ export const playlistMixin = {
     }
   },
   methods: {
-    handlePlaylist() {
+    handlePlaylist(playlist) {
       throw new Error('component must implement handlePlaylist method')
     }
   }
