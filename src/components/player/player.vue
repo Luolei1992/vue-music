@@ -5,7 +5,7 @@
                 <div class="background">
                     <img width="100%" height="100%" :src="currentSong.image">
                 </div>
-                <div class="top">
+                <div class="top staticTop">
                     <div class="back" @click="back">
                         <i class="icon-back"></i>
                     </div>
@@ -493,7 +493,11 @@ export default {
             opacity: 0.6;
             filter: blur(20px);
         }
-
+        .staticTop{
+            border-top:25px solid #222;;
+            position:relative;
+            z-index:100;
+        } 
         .top {
             position: relative;
             margin-bottom: 25px;
@@ -534,7 +538,7 @@ export default {
         .middle {
             position: fixed;
             width: 100%;
-            top: 80px;
+            top: 100px;
             bottom: 170px;
             white-space: nowrap;
             font-size: 0;

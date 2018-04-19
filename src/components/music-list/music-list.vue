@@ -1,9 +1,11 @@
 <template>
     <div class="music-list">
-        <div class="back" @click="back">
-            <i class="icon-back"></i>
+        <div class="staticTop">
+            <div class="back" @click="back">
+                <i class="icon-back"></i>
+            </div>
+            <h1 class="title" v-html="title"></h1>
         </div>
-        <h1 class="title" v-html="title"></h1>
         <div class="bg-image" :style="bgStyle" ref="bgImage">
             <div class="play-wrapper">
                 <div ref="playBtn" v-show="songs.length>0" class="play" @click="random">
@@ -75,7 +77,7 @@ export default {
     mounted() {
         this.imageHeight = this.$refs.bgImage.clientHeight
         this.minTranslateY = -this.imageHeight + topHeight
-        this.$refs.list.$el.style.top = `${this.$refs.bgImage.clientHeight}px`
+        this.$refs.list.$el.style.top = `${this.$refs.bgImage.clientHeight+25}px`
     },
     methods: {
         handlePlaylist(playlist){
@@ -148,12 +150,16 @@ export default {
 .music-list {
     position: fixed;
     z-index: 100;
-    top: 0;
+    top: 0px;
     left: 0;
     bottom: 0;
     right: 0;
     background: $color-background;
-
+    .staticTop{
+        border-top:25px solid #222;;
+        position:relative;
+        z-index:100;
+    } 
     .back {
         position: absolute;
         top: 0;
