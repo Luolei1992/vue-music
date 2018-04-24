@@ -105,7 +105,6 @@ import {getSongWords} from 'api/song'
 import {Base64} from 'js-base64'
 import Lyric from 'lyric-parser'
 
-
 const transform = prefixStyle('transform')
 const transitionDuration = prefixStyle('transitionDuration')
 export default {
@@ -227,9 +226,9 @@ export default {
             }
         },
         next() {
-            if (!this.songReady) {
-                return
-            }
+            // if (!this.songReady) {
+            //     return
+            // }
             if (this.playlist.length === 1) {
                 this.loop()
                 return
@@ -246,9 +245,9 @@ export default {
             // this.songReady = false
         },
         prev() {
-            if (!this.songReady) {
-                return
-            }
+            // if (!this.songReady) {
+            //     return
+            // }
             if (this.playlist.length === 1) {
                 this.loop()
                 return
@@ -364,7 +363,6 @@ export default {
         },
         
         middleTouchStart(e) {
-            console.log(e);
             this.touch.initiated = true
             // 用来判断是否是一次移动
             this.touch.moved = false
@@ -448,7 +446,7 @@ export default {
                 this.playingLyric = ''
                 this.currentLineNum = 0
             }
-            // clearTimeout(this.timer)
+            clearTimeout(this.timer)
             this.timer = setTimeout(() => {
                 this.$refs.audio.play()
                 this.getLyric()
